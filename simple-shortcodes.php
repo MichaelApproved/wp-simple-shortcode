@@ -32,14 +32,14 @@ class Simple_Shortcode {
                         $clean_param = str_replace('%','',$match);
                         $clean_param = explode(':', $clean_param);
                         if(count($clean_param) == 2) {
-                            $param_replace = '".(isset($atts[\''.$clean_param[0].'\']) ? $atts[\''.$clean_param[0].'\'] : \''.$clean_param[1].'\')."';
+                            $param_replace = '".(isset($atts["'.$clean_param[0].'"]) ? $atts["'.$clean_param[0].'"] : "'.$clean_param[1].'")."';
                             $html_code = str_replace($match, $param_replace, $html_code);
                         } else {
-                            $html_code = str_replace($match, '$atts["'.$clean_param[0].'"]', $html_code);
+                            $param_replace = '".$atts["'.$clean_param[0].'"]."';
+                            $html_code = str_replace($match, $param_replace, $html_code);
                         }
                     }
                 }
-                var_export('return "'.$html_code.'";');
                 add_shortcode($label,create_function('$atts', 'return "'.$html_code.'";'));
             }
         }
