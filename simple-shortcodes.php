@@ -25,7 +25,7 @@ class Simple_Shortcode {
             $labels = $settings['labels'];
             $codes = $settings['codes'];
             foreach($labels as $key => $label) {
-                $html_code = stripslashes($codes[$key]);
+                $html_code = $codes[$key];
                 preg_match_all('/%.+?%/', $html_code, $matches);
                 if(isset($matches[0]) && is_array($matches[0])) {
                     foreach($matches[0] as $match) {
