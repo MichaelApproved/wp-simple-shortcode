@@ -12,7 +12,7 @@ Apply additional parameters to the shortcode by simple adding %parameter_name% t
 Example:
 --------
 
-This is a string with a %var1:default-var% as well as another %var2:default-var-2% or any kind of %crazy_variable_name:default-crazy% that you would like.
+This is a string with a %%var1:default-var%% as well as another %%var2:default-var-2%% or any kind of %%crazy_variable_name:default-crazy%% that you would like.
 
 Inside the Post:
 ----------------
