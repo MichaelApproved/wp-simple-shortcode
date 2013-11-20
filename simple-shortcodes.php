@@ -26,10 +26,10 @@ class Simple_Shortcode {
             $codes = $settings['codes'];
             foreach($labels as $key => $label) {
                 $html_code = $codes[$key];
-                preg_match_all('/%.+?%/', $html_code, $matches);
+                preg_match_all('/%%.+?%%/', $html_code, $matches);
                 if(isset($matches[0]) && is_array($matches[0])) {
                     foreach($matches[0] as $match) {
-                        $clean_param = str_replace('%','',$match);
+                        $clean_param = str_replace('%%','',$match);
                         $clean_param = explode(':', $clean_param);
                         if(count($clean_param) == 2) {
                             $param_replace = '".(isset($atts["'.$clean_param[0].'"]) ? $atts["'.$clean_param[0].'"] : "'.$clean_param[1].'")."';
